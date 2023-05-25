@@ -86,5 +86,11 @@ public String prodadd(Model model) {
 	
 }
 
+//@PostMapping("/admin/products/add")
+//public String productaddpost(@ModelAttribute ("productDtO"),ProductD) {
+//
+//} 07:19 (8)
+}
+
 }
 

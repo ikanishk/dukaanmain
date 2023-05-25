@@ -20,5 +20,7 @@ public class ProductService {
 
 	public List<Product> getallprod(){return productDao.findAll();}
 
-
+	public void removeprodbyid(long id) {productDao.deleteById(id);}
+	
+	public Optional<Product> getprodbyid(long id){return productDao.findById(id);}
 }
