@@ -23,4 +23,6 @@ public class ProductService {
 	public void removeprodbyid(long id) {productDao.deleteById(id);}
 	
 	public Optional<Product> getprodbyid(long id){return productDao.findById(id);}
+	
+	public List<Product> getprodbycatid(int id){return productDao.findAllBycategoryId(id);}
 }
