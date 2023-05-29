@@ -123,6 +123,34 @@ public String productaddpost(@ModelAttribute ("productDtO")ProductDto productDto
 	return "redirect:/admin/products";
 
 }
+
+
+@GetMapping("/admin/product/delete/{id}")
+public String deleteprod(@PathVariable long id) {
+	productService.removeprodbyid(id);
+	return "redirect:/admin/products";
+	
+}
+
+
+@GetMapping("/admin/product/update/{id}")
+public String updateprod(@PathVariable long id,Model model) {
+	Product product=productService.getprodbyid(id).get();
+	ProductDto productDto = new ProductDto();
+
+	productDto.setId(product.getId());
+	productDto.setName(product.getName());
+	productDto.setCategoryId(product.getCategory().getId());
+	productDto.setPrice(product.getPrice());
+	productDto.setWeight(product.getWeight());
+	productDto.setDescription(product.getDescription());
+	productDto.setImageName(product.getImageName());
+
+	model.addAttribute("categories",categoryService.getallcat());
+	model.addAttribute("productDTO",productDto);//why can't i use "prodcutDto instead of "productDTO" to run it?(thymeleaf)
+	
+	return "productsAdd";
+}
 }
 
 
