@@ -34,7 +34,7 @@ private String lastname;
 @Email(message="{errors.invalid_email}")
 private String email;
 
-@NotEmpty
+//@NotEmpty
 private String password;
 
 //The below segment needs to be understood
