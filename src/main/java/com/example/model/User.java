@@ -23,13 +23,13 @@ public class User {
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Integer id;
 
-@NotEmpty
-@Column(nullable=false)
-private String firstname;
+//@NotEmpty
+//@Column(nullable=false)
+private String firstName;
 
-private String lastname;
+private String lastName;
 
-@Column(nullable=false,unique=true)
+//@Column(nullable=false,unique=true)
 @NotEmpty
 @Email(message="{errors.invalid_email}")
 private String email;
@@ -53,8 +53,8 @@ private List<Role> roles;
 public User(User user) {
 
 	this.id = id;
-	this.firstname = user.getFirstname();
-	this.lastname = user.getLastname();
+	this.firstName = user.getFirstname();
+	this.lastName = user.getLastname();
 	this.email = user.getEmail();
 	this.password = user.getPassword();
 	this.roles = user.getRoles();
@@ -69,19 +69,19 @@ public void setId(Integer id) {
 }
 
 public String getFirstname() {
-	return firstname;
+	return firstName;
 }
 
 public void setFirstname(String firstname) {
-	this.firstname = firstname;
+	this.firstName = firstname;
 }
 
 public String getLastname() {
-	return lastname;
+	return lastName;
 }
 
 public void setLastname(String lastname) {
-	this.lastname = lastname;
+	this.lastName = lastname;
 }
 
 public String getEmail() {

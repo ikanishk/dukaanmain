@@ -34,8 +34,7 @@ public class GoogleoAuthsuccesshandler implements AuthenticationSuccessHandler {
 	private RedirectStrategy redirectStrategy=new DefaultRedirectStrategy();
 	
 	@Override
-	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException, ServletException {
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 		
 		OAuth2AuthenticationToken token=(OAuth2AuthenticationToken) authentication;
 		String email=token.getPrincipal().getAttributes().get("email").toString();
