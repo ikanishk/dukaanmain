@@ -46,12 +46,12 @@ public class LoginController {
 	//below route is to register user, and the HttpServletRequest is taken to auto-login the user after he registers.
 	@PostMapping("/register")
 	public String registerPost(@ModelAttribute("user")User user,HttpServletRequest request)throws ServletException {
-		System.out.println(user.getEmail()+" "+user.getFirstname()+" "+user.getPassword()+" "+user.getLastname());
+		System.out.println(user.toString());
 		String password=user.getPassword();
 	
 		user.setPassword(bCryptPasswordEncoder.encode(password));
 		List<Role>roles=new ArrayList<>();
-		roles.add(roleRepository.findById(2).get());
+		roles.add(roleRepository.findById(2).get());//gives the user role (id 2) to the new user.
 		user.setRoles(roles);
 		
 		userRepository.save(user);
